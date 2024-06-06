@@ -8,6 +8,7 @@ description: >
 
 # Build settings
 theme: minima
+baseurl: ""
 
 plugins:
   - jekyll-feed
