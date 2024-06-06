@@ -1,10 +1,10 @@
-title: Your awesome title
+title: Daniel Tenreiro
 author:
   name: Daniel Tenreiro
 
 # The `>` after `description:` means to ignore line-breaks until next key.
 description: >
-  Lorem ipsum.
+  To speak in preexisting sayings linked to antiquity means to be a follower of the ways of the ancients. Although one seems to speak only accepted dogmas, in reality a criticism is hidden in it — "but it was the ancients who said so, not me!"
 
 # Build settings
 theme: minima
