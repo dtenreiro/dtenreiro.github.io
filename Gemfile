@@ -7,4 +7,4 @@ source "https://rubygems.org"
 # https://talk.jekyllrb.com/t/jekyll-serve-auto-regeneration-not-recognizing-changes-after-gemfile-update/5335/7
 gem 'github-pages'
 gem 'jekyll-redirect-from', '~> 0.6'
-gem "listen", "~> 3.2.1"
+gem "listen", "~> 3.1"
