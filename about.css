@@ -1,0 +1,230 @@
+/* Dark Theme Variables */
+:root {
+    --bg-color: #0a0a0a;
+    --text-color: #e0e0e0;
+    --accent-color: #3b82f6;
+    --accent-hover: #60a5fa;
+    --border-color: #2d2d2d;
+    --card-bg: #1a1a1a;
+    --link-color: #60a5fa;
+    --link-hover: #93c5fd;
+}
+
+/* Base Styles */
+.about-page {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    line-height: 1.8;
+}
+
+.about-page .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+}
+
+/* Header */
+.about-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 3rem;
+}
+
+.about-header h1 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin: 0;
+    color: var(--accent-color);
+}
+
+.about-header nav ul {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.about-header nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1rem;
+    transition: color 0.2s;
+}
+
+.about-header nav a:hover,
+.about-header nav a.active {
+    color: var(--accent-color);
+}
+
+/* Main Content */
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.about-section {
+    margin-bottom: 4rem;
+    padding: 0;
+    background: transparent;
+    border: none;
+    position: relative;
+}
+
+.about-section:not(:last-child) {
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.about-section:last-child {
+    margin-bottom: 2rem;
+}
+
+.head {
+    color: var(--accent-color);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.8rem;
+    margin: 2rem 0 1.5rem;
+    padding-bottom: 0.5rem;
+    display: inline-block;
+    position: relative;
+}
+
+.head::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: var(--accent-color);
+}
+
+/* Timeline */
+dl {
+    margin: 1.5rem 0 2rem;
+    position: relative;
+}
+
+dt {
+    color: var(--accent-color);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin: 1.5rem 0 0.5rem;
+}
+
+dd {
+    margin: 0 0 1.5rem 1.5rem;
+    line-height: 1.7;
+    color: var(--text-color);
+}
+
+dd a {
+    color: var(--link-color);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+dd a:hover {
+    color: var(--link-hover);
+    text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .head {
+        font-size: 1.5rem;
+    }
+    
+    dt {
+        font-size: 1rem;
+    }
+    
+    dd {
+        margin-left: 1rem;
+    }
+}
+
+/* Links */
+a {
+    color: var(--link-color);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+a:hover {
+    color: var(--link-hover);
+    text-decoration: underline;
+}
+
+.contact-links a {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem 0;
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.contact-links a:hover {
+    color: var(--accent-hover);
+    text-decoration: none;
+}
+
+.contact-links i {
+    width: 20px;
+    text-align: center;
+    color: var(--accent-color);
+}
+
+/* Footer */
+.about-footer {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+    color: var(--light-text);
+    font-size: 0.875rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .about-header {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    .about-header nav ul {
+        justify-content: center;
+    }
+    
+    .about-section {
+        padding: 1.5rem;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.about-section {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.6s ease-out forwards;
+}
+
+.about-section:nth-child(1) { animation-delay: 0.1s; }
+.about-section:nth-child(2) { animation-delay: 0.2s; }
+.about-section:nth-child(3) { animation-delay: 0.3s; }
+.about-section:nth-child(4) { animation-delay: 0.4s; }
