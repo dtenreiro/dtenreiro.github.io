@@ -138,6 +138,72 @@ dd a:hover {
     text-decoration: underline;
 }
 
+/* Reading Page Styles */
+.category {
+    color: var(--accent-color);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.4rem;
+    margin: 2.5rem 0 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.reading-list {
+    margin: 0;
+}
+
+.reading-item {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background-color: var(--card-bg);
+    border-radius: 6px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.reading-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.reading-title {
+    color: var(--text-color);
+    font-weight: 500;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 0.5rem;
+    transition: color 0.2s;
+}
+
+.reading-title:hover {
+    color: var(--accent-color);
+}
+
+.reading-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    color: var(--light-text);
+    margin-top: 0.5rem;
+}
+
+.reading-author,
+.reading-publication {
+    font-style: italic;
+}
+
+.reading-link,
+.reading-download {
+    color: var(--light-text);
+    margin-left: 0.5rem;
+    transition: color 0.2s;
+}
+
+.reading-link:hover,
+.reading-download:hover {
+    color: var(--accent-color);
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .head {
