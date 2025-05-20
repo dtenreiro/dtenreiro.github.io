@@ -17,13 +17,45 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Email obfuscation to prevent spam
+    // Enhanced email handling with better obfuscation
     const emailLinks = document.querySelectorAll('.email-link');
     if (emailLinks.length > 0) {
-        const user = 'dtopeninbox';
-        const domain = 'gmail.com';
+        // Email components encoded in base64
+        const encodedUser = 'ZHRvcGVuaW5ib3g='; // dtopeninbox
+        const encodedDomain = 'Z21haWwuY29t'; // gmail.com
+        
+        const decodeEmail = () => {
+            try {
+                const user = atob(encodedUser);
+                const domain = atob(encodedDomain);
+                return `${user}@${domain}`;
+            } catch (e) {
+                console.error('Error decoding email components');
+                return '';
+            }
+        };
+
         emailLinks.forEach(link => {
-            link.href = `mailto:${user}@${domain}`;
+            const email = decodeEmail();
+            if (email) {
+                // Set the href attribute
+                link.href = `mailto:${email}`;
+                
+                // Set display text if not already set
+                if (!link.textContent || link.textContent === '') {
+                    link.textContent = email;
+                }
+
+                // Add click tracking (optional)
+                link.addEventListener('click', (e) => {
+                    if (typeof gtag !== 'undefined') {
+                        gtag('event', 'click', {
+                            'event_category': 'Email',
+                            'event_label': 'Contact Link Clicked'
+                        });
+                    }
+                });
+            }
         });
     }
 
