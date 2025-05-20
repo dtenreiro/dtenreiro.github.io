@@ -1,0 +1,13 @@
+---
+---
+// Import the Minima theme first:
+@import "minima";
+
+// Your overrides:
+body {
+  font-family: "Open Sans", sans-serif;
+}
+a {
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+}

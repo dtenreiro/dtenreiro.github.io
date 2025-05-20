@@ -20,8 +20,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Email obfuscation to prevent spam
     const emailLink = document.getElementById('email-link');
     if (emailLink) {
-        const user = 'daniel';
-        const domain = 'tenreiro.com';
+        const user = 'dtopeninbox';
+        const domain = 'gmail.com';
         emailLink.href = `mailto:${user}@${domain}`;
     }
 
