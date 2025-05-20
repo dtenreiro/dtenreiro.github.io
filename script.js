@@ -18,11 +18,13 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Email obfuscation to prevent spam
-    const emailLink = document.getElementById('email-link');
-    if (emailLink) {
+    const emailLinks = document.querySelectorAll('.email-link');
+    if (emailLinks.length > 0) {
         const user = 'dtopeninbox';
         const domain = 'gmail.com';
-        emailLink.href = `mailto:${user}@${domain}`;
+        emailLinks.forEach(link => {
+            link.href = `mailto:${user}@${domain}`;
+        });
     }
 
     // Add animation to sections when they come into view
