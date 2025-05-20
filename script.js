@@ -3,16 +3,19 @@ document.addEventListener('DOMContentLoaded', function() {
     // Smooth scrolling for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-            
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                window.scrollTo({
-                    top: targetElement.offsetTop - 80,
-                    behavior: 'smooth'
-                });
+            // Don't prevent default for email links
+            if (!this.classList.contains('email-link')) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
             }
         });
     });
@@ -38,16 +41,12 @@ document.addEventListener('DOMContentLoaded', function() {
         emailLinks.forEach(link => {
             const email = decodeEmail();
             if (email) {
-                // Set the href attribute
+                // Set the href attribute with mailto:
                 link.href = `mailto:${email}`;
                 
-                // Set display text if not already set
-                if (!link.textContent || link.textContent === '') {
-                    link.textContent = email;
-                }
-
-                // Add click tracking (optional)
+                // Add click event listener
                 link.addEventListener('click', (e) => {
+                    // Track the click if analytics is available
                     if (typeof gtag !== 'undefined') {
                         gtag('event', 'click', {
                             'event_category': 'Email',
