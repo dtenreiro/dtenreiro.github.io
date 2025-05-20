@@ -44,8 +44,27 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Set the href attribute with mailto:
                 link.href = `mailto:${email}`;
                 
+                // Show the email address if text is "Email Me"
+                if (link.textContent.trim() === 'Email Me') {
+                    const icon = link.querySelector('i');
+                    const textNode = document.createTextNode(` ${email}`);
+                    if (icon) {
+                        link.innerHTML = '';
+                        link.appendChild(icon);
+                        link.appendChild(textNode);
+                    } else {
+                        link.textContent = email;
+                    }
+                }
+                
                 // Add click event listener
                 link.addEventListener('click', (e) => {
+                    // Ensure the mailto: link works even with javascript:void(0)
+                    if (!link.href.startsWith('mailto:')) {
+                        e.preventDefault();
+                        window.location.href = `mailto:${email}`;
+                    }
+                    
                     // Track the click if analytics is available
                     if (typeof gtag !== 'undefined') {
                         gtag('event', 'click', {
