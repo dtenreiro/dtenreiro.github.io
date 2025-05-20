@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 link.href = `mailto:${email}`;
                 
                 // Show the email address if text is "Email Me"
-                if (link.textContent.trim() === 'Email Me') {
+                if (link.textContent.trim() === 'Email') {
                     const icon = link.querySelector('i');
                     const textNode = document.createTextNode(` ${email}`);
                     if (icon) {
